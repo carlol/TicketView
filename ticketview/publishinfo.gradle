@@ -1,0 +1,25 @@
+ext {
+    bintrayRepo = 'TicketView'
+    bintrayName = 'ticketview'   // Has to be same as your library module name
+
+    publishedGroupId = 'io.carlol.android'
+    libraryName = 'TicketView'
+    artifact = 'ticketview'     // Has to be same as your library module name
+
+    libraryDescription = 'TicketView with scallops, corners and shadow management.'
+
+    // Your github repo link
+    siteUrl = 'https://github.com/carlol/TicketView'
+    gitUrl = 'https://github.com/carlol/TicketView.git'
+    githubRepository= 'carlol/TicketView'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'carlol'
+    developerName = 'Carlo Luchessa'
+    developerEmail = 'carlo.luchessa@gmail.com'
+
+    licenseName = 'MIT/X11 License'
+    licenseUrl = 'http://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
+}
