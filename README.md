@@ -2,5 +2,5 @@
 TicketView with scallops, corners and shadow management.
 
 ```gradle
-implementation 'io.carlol.android:galleryloader:1.0.2'
+implementation 'io.carlol.android:ticketview:1.0.1'
 ```
