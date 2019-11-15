@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <io.carlol.android.ticketview.TicketView
+                android:id="@+id/ticket_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@android:color/transparent"
+                android:padding="20dp"
+                app:tv_anchor="@+id/line"
+                app:tv_backgroundColor="@android:color/white"
+                app:tv_cornerRadius="10dp"
+                app:tv_elevation="10dp"
+                app:tv_holeRadius="60"
+                app:tv_orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/passenger"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sample_text" />
+
+                    <View
+                        android:id="@+id/line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="40dp"
+                        android:background="@color/colorAccent" />
+
+                    <ImageView
+                        android:id="@+id/qr_code"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:src="@drawable/ic_qr_code" />
+
+                    <TextView
+                        android:id="@+id/seat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/sample_text_long" />
+
+                </LinearLayout>
+
+            </io.carlol.android.ticketview.TicketView>
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+

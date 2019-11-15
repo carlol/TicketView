@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TicketView">
+        <attr name="tv_anchor" format="reference" />
+        <attr name="tv_holeRadius" format="float" />
+        <attr name="tv_orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="tv_backgroundColor" format="color" />
+        <attr name="tv_showBorder" format="boolean" />
+        <attr name="tv_borderColor" format="color" />
+        <attr name="tv_borderWidth" format="dimension" />
+        <attr name="android:elevation" />
+        <attr name="tv_elevation" format="dimension" />
+        <attr name="tv_cornerRadius" format="dimension" />
+        <attr name="tv_topLeftCornerRadius" format="dimension" />
+        <attr name="tv_topRightCornerRadius" format="dimension" />
+        <attr name="tv_bottomRightCornerRadius" format="dimension" />
+        <attr name="tv_bottomLeftCornerRadius" format="dimension" />
+    </declare-styleable>
+
+</resources>

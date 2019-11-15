@@ -1,0 +1,2 @@
+include ':app', ':ticketview'
+rootProject.name='My Application'
