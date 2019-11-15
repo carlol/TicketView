@@ -1,7 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">TicketView</string>
 
-    <string name="sample_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit mollis velit, vel sagittis nulla. In hac habitasse platea dictumst. Nullam porttitor egestas dui id malesuada. Duis mattis congue justo vel luctus. Nam a sem sodales, porta diam commodo, posuere quam. Nullam non imperdiet erat, ut volutpat velit. Maecenas eu purus ligula. Aliquam id scelerisque mauris. Integer venenatis tortor eget arcu ultrices, non bibendum est aliquam. Mauris eget semper nibh, sed semper metus.</string>
+    <string name="sample_text" tools:ignore="ExtraTranslation">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit mollis velit, vel sagittis nulla. In hac habitasse platea dictumst. Nullam porttitor egestas dui id malesuada. Duis mattis congue justo vel luctus. Nam a sem sodales, porta diam commodo, posuere quam. Nullam non imperdiet erat, ut volutpat velit. Maecenas eu purus ligula. Aliquam id scelerisque mauris. Integer venenatis tortor eget arcu ultrices, non bibendum est aliquam. Mauris eget semper nibh, sed semper metus.</string>
 
     <string name="sample_text_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit mollis velit, vel sagittis nulla. In hac habitasse platea dictumst. Nullam porttitor egestas dui id malesuada. Duis mattis congue justo vel luctus. Nam a sem sodales, porta diam commodo, posuere quam. Nullam non imperdiet erat, ut volutpat velit. Maecenas eu purus ligula. Aliquam id scelerisque mauris. Integer venenatis tortor eget arcu ultrices, non bibendum est aliquam. Mauris eget semper nibh, sed semper metus.
 

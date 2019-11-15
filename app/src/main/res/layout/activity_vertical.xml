@@ -14,7 +14,7 @@
             android:layout_height="wrap_content">
 
             <io.carlol.android.ticketview.TicketView
-                android:id="@+id/ticket_view"
+                android:id="@+id/ticketView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -34,7 +34,6 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/passenger"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample_text" />
@@ -47,13 +46,11 @@
                         android:background="@color/colorAccent" />
 
                     <ImageView
-                        android:id="@+id/qr_code"
                         android:layout_width="180dp"
                         android:layout_height="180dp"
                         android:src="@drawable/ic_qr_code" />
 
                     <TextView
-                        android:id="@+id/seat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"

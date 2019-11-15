@@ -11,8 +11,6 @@ import android.graphics.Path;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.os.Build.VERSION;
-import android.os.Build.VERSION_CODES;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
@@ -21,7 +19,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
 import androidx.annotation.ColorInt;
@@ -54,8 +52,8 @@ public class TicketView extends FrameLayout {
     private static final int DEFAULT_RADIUS = 0;
     private static final int NO_VALUE = -1;
 
-    private Paint backgroundPaint = new Paint();
-    private Paint borderPaint = new Paint();
+    private final Paint backgroundPaint = new Paint();
+    private final Paint borderPaint = new Paint();
     private final Paint mShadowPaint = new Paint(ANTI_ALIAS_FLAG);
 
     private int backgroundColor = Color.WHITE;
@@ -79,12 +77,12 @@ public class TicketView extends FrameLayout {
     private int cornerRadiusBottomRight;
     private int cornerRadiusBottomLeft;
 
-    private Path ticketPath = new Path();
+    private final Path ticketPath = new Path();
 
-    private RectF scallopArc = new RectF();
-    private RectF cornerArc = new RectF();
+    private final RectF scallopArc = new RectF();
+    private final RectF cornerArc = new RectF();
 
-    private AtomicBoolean isDirty = new AtomicBoolean(true);
+    private final AtomicBoolean isDirty = new AtomicBoolean(true);
 
 
     public TicketView(Context context) {
@@ -209,15 +207,12 @@ public class TicketView extends FrameLayout {
         if (anchorViewId != NO_VALUE) {
             final View anchorView = findViewById(anchorViewId);
 
-            getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+            getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
                 @Override
-                public void onGlobalLayout() {
-                    if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
-                        getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    } else {
-                        getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                    }
+                public boolean onPreDraw() {
+                    getViewTreeObserver().removeOnPreDrawListener(this);
                     setAnchor(anchorView);
+                    return true;
                 }
             });
         }
