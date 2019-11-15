@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
+apply from: 'publishinfo.gradle' // deploy lib
+
 android {
     compileSdkVersion 28
 
@@ -31,3 +34,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+// deploy lib - start
+apply from: 'publishinstallv1.gradle'
+apply from: 'publishbintrayv1.gradle'
+// deploy lib - end

@@ -1,2 +1,2 @@
 include ':app', ':ticketview'
-rootProject.name='My Application'
+rootProject.name='TicketView'
