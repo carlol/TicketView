@@ -13,7 +13,7 @@ ext {
     gitUrl = 'https://github.com/carlol/TicketView.git'
     githubRepository= 'carlol/TicketView'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.3'
 
     developerId = 'carlol'
     developerName = 'Carlo Luchessa'
