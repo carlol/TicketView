@@ -36,7 +36,7 @@ TicketView - Vertical      |  TicketView - Horizontal
 ## Installation
 
 ```gradle
-implementation 'io.carlol.android:ticketview:1.0.1'
+implementation 'io.carlol.android:ticketview:1.0.3'
 ```
 
 ## Attributes
