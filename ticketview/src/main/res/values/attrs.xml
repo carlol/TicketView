@@ -4,6 +4,7 @@
     <declare-styleable name="TicketView">
         <attr name="tv_anchor" format="reference" />
         <attr name="tv_holeRadius" format="float" />
+        <attr name="tv_holeConcave" format="float" />
         <attr name="tv_orientation" format="enum">
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />

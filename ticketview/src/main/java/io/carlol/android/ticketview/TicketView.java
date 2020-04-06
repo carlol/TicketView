@@ -31,7 +31,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static android.graphics.Bitmap.Config.ALPHA_8;
 import static android.graphics.Color.BLACK;
-import static android.graphics.Color.TRANSPARENT;
 import static android.graphics.Paint.ANTI_ALIAS_FLAG;
 import static android.graphics.PorterDuff.Mode.SRC_IN;
 
@@ -71,6 +70,7 @@ public class TicketView extends FrameLayout {
 
     private float holePosition;
     private float holeRadius;
+    private float holeConcave;
 
     private int cornerRadiusTopLeft;
     private int cornerRadiusTopRight;
@@ -108,6 +108,7 @@ public class TicketView extends FrameLayout {
         try {
             orientation = a.getInt(R.styleable.TicketView_tv_orientation, Orientation.VERTICAL);
             holeRadius = a.getFloat(R.styleable.TicketView_tv_holeRadius, DEFAULT_RADIUS);
+            holeConcave = a.getFloat(R.styleable.TicketView_tv_holeConcave, holeRadius); // def radius
             anchorViewId = a.getResourceId(R.styleable.TicketView_tv_anchor, NO_VALUE);
 
             backgroundColor = a.getColor(R.styleable.TicketView_tv_backgroundColor, Color.WHITE);
@@ -253,6 +254,18 @@ public class TicketView extends FrameLayout {
         }
 
         super.onDraw(canvas);
+    }
+
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        try {
+            canvas.restore();
+        } catch (Exception e) {
+        }
+        canvas.save();
+        canvas.clipPath(ticketPath);
+        super.dispatchDraw(canvas);
     }
 
 
@@ -418,18 +431,18 @@ public class TicketView extends FrameLayout {
 
     private RectF getRightScallopRect(float right, float top) {
         scallopArc.set(
-                right - holeRadius
+                right - holeConcave
                 , top - holeRadius * 2
-                , right + holeRadius
+                , right + holeConcave
                 , top);
         return scallopArc;
     }
 
     private RectF getLeftScallopRect(float left, float top) {
         scallopArc.set(
-                left - holeRadius
+                left - holeConcave
                 , top - holeRadius * 2
-                , left + holeRadius
+                , left + holeConcave
                 , top);
         return scallopArc;
     }
@@ -442,18 +455,18 @@ public class TicketView extends FrameLayout {
     private RectF getTopScallopRect(float right, float top) {
         scallopArc.set(
                 right
-                , top - holeRadius
+                , top - holeConcave
                 , right + holeRadius * 2
-                , top + holeRadius);
+                , top + holeConcave);
         return scallopArc;
     }
 
     private RectF getBottomScallopRect(float left, float top) {
         scallopArc.set(
                 left
-                , top - holeRadius
+                , top - holeConcave
                 , left + holeRadius * 2
-                , top + holeRadius);
+                , top + holeConcave);
         return scallopArc;
     }
 
@@ -462,11 +475,10 @@ public class TicketView extends FrameLayout {
         if (isJellyBeanAndAbove() && !isInEditMode()) {
             if (shadowBlurRadius == 0f) return;
 
-            if (mShadow == null) {
-                mShadow = Bitmap.createBitmap(getWidth(), getHeight(), ALPHA_8);
-            } else {
-                mShadow.eraseColor(TRANSPARENT);
+            if (mShadow != null && !mShadow.isRecycled()) {
+                mShadow.recycle();
             }
+            mShadow = Bitmap.createBitmap(getWidth(), getHeight(), ALPHA_8);
             Canvas c = new Canvas(mShadow);
             c.drawPath(ticketPath, mShadowPaint);
             if (showBorder) {
